@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import Home from './Home'
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function Login() {

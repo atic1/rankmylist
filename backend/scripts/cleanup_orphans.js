@@ -4,6 +4,9 @@ import Review from '../src/models/Review.js';
 import MyList from '../src/models/MyList.js';
 import TierList from '../src/models/TierList.js';
 import User from '../src/models/usersignup.js';
+import dns from 'dns';
+
+dns.setServers(['8.8.8.8', '1.1.1.1']);
 
 dotenv.config({ path: './.env' });
 

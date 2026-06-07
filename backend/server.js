@@ -1,8 +1,13 @@
 import dotenv from "dotenv";
+import dns from "dns";
 
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+
+// Set DNS servers to resolve SRV records properly on Windows
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
+
 dotenv.config();
 
 
@@ -10,9 +15,26 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Middleware — CORS must come before routes
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://127.0.0.1:5173",
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (e.g. Postman, curl) or allowed origins
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
 app.use(express.json());
+
 
 // MongoDB Connection
 // MongoDB Connection

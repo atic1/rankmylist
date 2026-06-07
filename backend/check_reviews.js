@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import Review from '../src/models/Review.js';
+import dns from 'dns';
+
+dns.setServers(['8.8.8.8', '1.1.1.1']);
 
 dotenv.config({ path: './.env' });
 
