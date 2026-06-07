@@ -1,0 +1,83 @@
+flowchart TD
+    %% Entities (Rectangles)
+    USER[User]
+    MYLIST[MyList]
+    REVIEW[Review]
+    TIERLIST[TierList]
+
+    %% Relationships (Diamonds)
+    HAS_MYLIST{has}
+    WRITES_REVIEW{writes}
+    CREATES_TIERLIST{creates}
+
+    %% Connect Entities to Relationships
+    USER --- HAS_MYLIST
+    HAS_MYLIST --- MYLIST
+
+    USER --- WRITES_REVIEW
+    WRITES_REVIEW --- REVIEW
+
+    USER --- CREATES_TIERLIST
+    CREATES_TIERLIST --- TIERLIST
+
+    %% Attributes for User (Ovals)
+    U_ID([_id])
+    U_USERNAME([username])
+    U_EMAIL([email])
+    U_PASSWORD([password])
+    U_ROLE([role])
+
+    USER --- U_ID
+    USER --- U_USERNAME
+    USER --- U_EMAIL
+    USER --- U_PASSWORD
+    USER --- U_ROLE
+
+    %% Attributes for MyList
+    ML_ID([_id])
+    ML_MOVIEID([movieId])
+    ML_TITLE([title])
+    ML_STATUS([status])
+    ML_RATING([personalRating])
+
+    MYLIST --- ML_ID
+    MYLIST --- ML_MOVIEID
+    MYLIST --- ML_TITLE
+    MYLIST --- ML_STATUS
+    MYLIST --- ML_RATING
+
+    %% Attributes for Review
+    R_ID([_id])
+    R_MOVIEID([movieId])
+    R_RATING([rating])
+    R_COMMENT([comment])
+    R_CREATED([createdAt])
+
+    REVIEW --- R_ID
+    REVIEW --- R_MOVIEID
+    REVIEW --- R_RATING
+    REVIEW --- R_COMMENT
+    REVIEW --- R_CREATED
+
+    %% Attributes for TierList
+    TL_ID([_id])
+    TL_NAME([name])
+    TL_TIERS([tiers])
+    TL_POOL([pool])
+    
+    TIERLIST --- TL_ID
+    TIERLIST --- TL_NAME
+    TIERLIST --- TL_TIERS
+    TIERLIST --- TL_POOL
+
+    %% Exact Styling from Image Requirements
+    classDef entity fill:#ffffff,stroke:#4a76ba,stroke-width:2px,color:#000;
+    classDef relationship fill:#ffffff,stroke:#4a76ba,stroke-width:2px,color:#000;
+    classDef attribute fill:#dcf0ba,stroke:#4a76ba,stroke-width:2px,color:#000;
+
+    class USER,MYLIST,REVIEW,TIERLIST entity;
+    class HAS_MYLIST,WRITES_REVIEW,CREATES_TIERLIST relationship;
+    class U_ID,U_USERNAME,U_EMAIL,U_PASSWORD,U_ROLE,ML_ID,ML_MOVIEID,ML_TITLE,ML_STATUS,ML_RATING,R_ID,R_MOVIEID,R_RATING,R_COMMENT,R_CREATED,TL_ID,TL_NAME,TL_TIERS,TL_POOL attribute;
+
+    %% Style all lines to be blue
+    linkStyle default stroke:#4a76ba,stroke-width:2px;

@@ -1,0 +1,27 @@
+graph TD
+    classDef external fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef process fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef datastore fill:#ff9,stroke:#333,stroke-width:2px;
+
+    User((User)):::external
+    D5[(D5: TierLists Collection)]:::datastore
+    D2[(D2: Movies/TMDB Cache)]:::datastore
+
+    P5_1(5.1 Fetch User Board):::process
+    P5_2(5.2 Update Item Position):::process
+    P5_3(5.3 Add Movie to Pool):::process
+    P5_4(5.4 Persist Board State):::process
+
+    User -- Request Board Load --> P5_1
+    P5_1 -- Read Existing Tiers --> D5
+    P5_1 -- Provide Board Data --> User
+
+    User -- Search Movie to Add --> P5_3
+    P5_3 -- Fetch Movie Details --> D2
+    P5_3 -- Add to Unranked Pool --> P5_4
+
+    User -- Drag Item to Tier S-D --> P5_2
+    P5_2 -- Validate Move --> P5_4
+
+    P5_4 -- Upsert JSON State --> D5
+    P5_4 -- Success Acknowledgment --> User

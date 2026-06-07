@@ -1,0 +1,53 @@
+graph TD
+    classDef external fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef process fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef datastore fill:#ff9,stroke:#333,stroke-width:2px;
+
+    %% External Entities
+    User((User)):::external
+    Admin((Admin)):::external
+    TMDB[TMDB API]:::external
+
+    %% Processes (Level 1)
+    P1(1.0 Auth System):::process
+    P2(2.0 Movie Discovery):::process
+    P3(3.0 Review System):::process
+    P4(4.0 Library Management):::process
+    P5(5.0 Tier Ranking):::process
+    P6(6.0 Admin Dashboard):::process
+
+    %% Data Stores
+    D1[(D1: Users)]:::datastore
+    D2[(D2: Movies)]:::datastore
+    D3[(D3: Reactions/Reviews)]:::datastore
+    D4[(D4: MyLists)]:::datastore
+    D5[(D5: TierLists)]:::datastore
+
+    %% Flows
+    User -- Credentials --> P1
+    P1 -- Auth Token --> User
+    P1 -- Read/Write User --> D1
+
+    User -- Search Queries --> P2
+    P2 -- Proxy Request --> TMDB
+    TMDB -- Movie Metadata --> P2
+    P2 -- Trending/Results --> User
+    P2 -- Cache/Fetch --> D2
+
+    User -- Submit Review --> P3
+    P3 -- Read/Write Review --> D3
+    P3 -- Reviews Data --> User
+
+    User -- Watch/Plan Status --> P4
+    P4 -- Update Status --> D4
+    P4 -- Library Data --> User
+
+    User -- Drag Drop Ranking --> P5
+    P5 -- Update Board --> D5
+    P5 -- Tier Data --> User
+
+    Admin -- Manage Users/Movies --> P6
+    P6 -- Stats/Data --> Admin
+    P6 -- Delete/Ban --> D1
+    P6 -- Manage Content --> D2
+    P6 -- Moderate Reviews --> D3

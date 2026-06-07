@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Level 0 DFD – Rank My List</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+</style>
+</head>
+<body>
+<svg width="1100" height="320" viewBox="0 0 1100 320" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- =========== ADMIN BOX =========== -->
+  <rect x="30" y="120" width="150" height="70" fill="white" stroke="black" stroke-width="2"/>
+  <text x="105" y="159" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial, sans-serif" fill="black">Admin</text>
+
+  <!-- =========== USER BOX =========== -->
+  <rect x="920" y="120" width="150" height="70" fill="white" stroke="black" stroke-width="2"/>
+  <text x="995" y="159" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial, sans-serif" fill="black">User</text>
+
+  <!-- =========== SYSTEM CIRCLE =========== -->
+  <circle cx="550" cy="155" r="90" fill="white" stroke="black" stroke-width="2"/>
+  <text x="550" y="148" text-anchor="middle" font-size="16" fill="black" font-family="Arial, sans-serif">0</text>
+  <text x="550" y="170" text-anchor="middle" font-size="15" font-weight="bold" fill="black" font-family="Arial, sans-serif">Rank My List</text>
+
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+    <marker id="arr-left" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="black"/>
+    </marker>
+  </defs>
+
+  <!-- ===== ADMIN → SYSTEM (top arrow, going right) ===== -->
+  <line x1="180" y1="135" x2="462" y2="120" stroke="black" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="320" y="113" text-anchor="middle" font-size="11.5" font-family="Arial, sans-serif" fill="black">Manage System / Configuration Data</text>
+
+  <!-- ===== SYSTEM → ADMIN (bottom arrow, going left) ===== -->
+  <line x1="462" y1="192" x2="180" y2="177" stroke="black" stroke-width="1.6" marker-end="url(#arr-left)"/>
+  <text x="320" y="207" text-anchor="middle" font-size="11.5" font-family="Arial, sans-serif" fill="black">System Reports / Notifications</text>
+
+  <!-- ===== USER → SYSTEM (top arrow, going left) ===== -->
+  <line x1="920" y1="135" x2="638" y2="120" stroke="black" stroke-width="1.6" marker-end="url(#arr-left)"/>
+  <text x="779" y="112" text-anchor="middle" font-size="11.5" font-family="Arial, sans-serif" fill="black">Requests / Queries / Registration Info</text>
+
+  <!-- ===== SYSTEM → USER (bottom arrow, going right) ===== -->
+  <line x1="638" y1="192" x2="920" y2="177" stroke="black" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="779" y="207" text-anchor="middle" font-size="11.5" font-family="Arial, sans-serif" fill="black">Movie Data / Rankings / Reviews</text>
+
+</svg>
+</body>
+</html>

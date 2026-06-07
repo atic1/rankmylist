@@ -1,0 +1,21 @@
+graph TD
+    classDef external fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef process fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef datastore fill:#ff9,stroke:#333,stroke-width:2px;
+
+    P5_2(5.2 Update Position Flow):::external
+    D5[(D5: TierLists DB)]:::datastore
+    D1[(D1: Users Session/Token)]:::datastore
+
+    P5_4_1(5.4.1 Extract Payload):::process
+    P5_4_2(5.4.2 Validate Auth/User ID):::process
+    P5_4_3(5.4.3 Map JSON to Schema):::process
+    P5_4_4(5.4.4 MongoDB Upsert Op):::process
+
+    P5_2 -- Send Layout Object --> P5_4_1
+    P5_4_1 -- Extracted User ID --> P5_4_2
+    P5_4_2 -- Verify JWT/Token --> D1
+    P5_4_2 -- Authorized Payload --> P5_4_3
+    P5_4_3 -- Structured BSON --> P5_4_4
+    P5_4_4 -- Save Board State --> D5
+    P5_4_4 -- Board Saved Confirmation --> P5_2

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Level 2 DFD – Rank My List (Tier List Management)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 30px 10px;
+  }
+</style>
+</head>
+<body>
+<svg width="1300" height="920" viewBox="0 0 1300 920" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+    <marker id="arr-left" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="black"/>
+    </marker>
+  </defs>
+
+  <!-- ============================================================ -->
+  <!--  TITLE                                                       -->
+  <!-- ============================================================ -->
+  <text x="650" y="36" text-anchor="middle" font-size="18" font-weight="bold"
+        font-family="Arial" fill="black">Level 2 DFD – Rank My List (Tier List Management – Process 1.3 Expanded)</text>
+
+  <!-- ============================================================ -->
+  <!--  EXTERNAL ENTITIES                                           -->
+  <!-- ============================================================ -->
+
+  <!-- Registered User (left) -->
+  <rect x="20" y="200" width="150" height="55" fill="white" stroke="black" stroke-width="2"/>
+  <text x="95" y="232" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">Registered User</text>
+
+  <!-- Admin (left-bottom) -->
+  <rect x="20" y="560" width="110" height="55" fill="white" stroke="black" stroke-width="2"/>
+  <text x="75" y="592" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">Admin</text>
+
+  <!-- ============================================================ -->
+  <!--  PROCESS CIRCLES                                             -->
+  <!-- ============================================================ -->
+
+  <!-- 5.1 Fetch User Board -->
+  <circle cx="420" cy="175" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="420" y="168" text-anchor="middle" font-size="12" font-family="Arial" fill="black">5.1</text>
+  <text x="420" y="183" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Fetch User</text>
+  <text x="420" y="198" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Board</text>
+
+  <!-- 5.2 Update Item Position (drag to tier) -->
+  <circle cx="420" cy="370" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="420" y="363" text-anchor="middle" font-size="12" font-family="Arial" fill="black">5.2</text>
+  <text x="420" y="378" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Update Item</text>
+  <text x="420" y="393" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Position</text>
+
+  <!-- 5.3 Add Movie to Pool -->
+  <circle cx="420" cy="565" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="420" y="558" text-anchor="middle" font-size="12" font-family="Arial" fill="black">5.3</text>
+  <text x="420" y="573" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Add Movie</text>
+  <text x="420" y="588" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">to Pool</text>
+
+  <!-- 5.4 Persist Board State -->
+  <circle cx="420" cy="760" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="420" y="753" text-anchor="middle" font-size="12" font-family="Arial" fill="black">5.4</text>
+  <text x="420" y="768" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Persist Board</text>
+  <text x="420" y="783" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">State</text>
+
+  <!-- 5.5 View / Display Rankings -->
+  <circle cx="950" cy="430" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="950" y="420" text-anchor="middle" font-size="12" font-family="Arial" fill="black">5.5</text>
+  <text x="950" y="435" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">View /</text>
+  <text x="950" y="450" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Display Rankings</text>
+
+  <!-- ============================================================ -->
+  <!--  DATA STORES (open rectangles – 2 horizontal lines)         -->
+  <!-- ============================================================ -->
+
+  <!-- D5: TierLists Collection -->
+  <line x1="680" y1="155" x2="920" y2="155" stroke="black" stroke-width="2"/>
+  <line x1="680" y1="185" x2="920" y2="185" stroke="black" stroke-width="2"/>
+  <text x="800" y="175" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">D5: TierLists Collection</text>
+
+  <!-- D2: Movies / TMDB Cache -->
+  <line x1="680" y1="530" x2="920" y2="530" stroke="black" stroke-width="2"/>
+  <line x1="680" y1="560" x2="920" y2="560" stroke="black" stroke-width="2"/>
+  <text x="800" y="550" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">D2: Movies / TMDB Cache</text>
+
+  <!-- D1: Users Collection -->
+  <line x1="680" y1="738" x2="920" y2="738" stroke="black" stroke-width="2"/>
+  <line x1="680" y1="768" x2="920" y2="768" stroke="black" stroke-width="2"/>
+  <text x="800" y="758" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">D1: Users Collection</text>
+
+  <!-- ============================================================ -->
+  <!--  ARROWS – User ↔ Processes                                  -->
+  <!-- ============================================================ -->
+
+  <!-- User → 5.1 (Request Board Load) -->
+  <line x1="170" y1="215" x2="355" y2="175" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="255" y="185" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">request board load</text>
+
+  <!-- 5.1 → User (Provide Board Data) -->
+  <line x1="355" y1="193" x2="170" y2="233" stroke="black" stroke-width="1.5" marker-end="url(#arr-left)"/>
+  <text x="255" y="230" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">provide board data</text>
+
+  <!-- User → 5.2 (Drag Item to Tier S-D) -->
+  <line x1="95" y1="255" x2="95" y2="370" stroke="black" stroke-width="1.5"/>
+  <line x1="95" y1="370" x2="355" y2="370" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="210" y="360" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">drag item to tier S-D</text>
+
+  <!-- User → 5.3 (Search Movie to Add) -->
+  <line x1="80" y1="255" x2="80" y2="565" stroke="black" stroke-width="1.5"/>
+  <line x1="80" y1="565" x2="355" y2="565" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="195" y="555" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">search movie to add</text>
+
+  <!-- 5.5 → User (tier list output) -->
+  <rect x="1060" y="400" width="170" height="55" fill="white" stroke="black" stroke-width="2"/>
+  <text x="1145" y="432" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">General User</text>
+  <line x1="1015" y1="420" x2="1060" y2="420" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="1038" y="412" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">ranked list</text>
+
+  <!-- ============================================================ -->
+  <!--  ARROWS – Processes ↔ Data Stores                           -->
+  <!-- ============================================================ -->
+
+  <!-- 5.1 → D5 (Read Existing Tiers) -->
+  <line x1="485" y1="155" x2="680" y2="158" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="580" y="147" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">read existing tiers</text>
+
+  <!-- D5 → 5.1 (Return Tier Data) -->
+  <line x1="680" y1="182" x2="485" y2="185" stroke="black" stroke-width="1.5" marker-end="url(#arr-left)"/>
+  <text x="580" y="198" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">return tier data</text>
+
+  <!-- 5.3 → D2 (Fetch Movie Details) -->
+  <line x1="485" y1="545" x2="680" y2="535" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="580" y="527" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">fetch movie details</text>
+
+  <!-- D2 → 5.3 (Return Movie Info) -->
+  <line x1="680" y1="557" x2="485" y2="567" stroke="black" stroke-width="1.5" marker-end="url(#arr-left)"/>
+  <text x="580" y="575" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">return movie info</text>
+
+  <!-- 5.4 → D5 (Upsert JSON State) -->
+  <line x1="485" y1="745" x2="680" y2="742" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="580" y="735" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">upsert JSON state</text>
+
+  <!-- 5.4 → D1 (Validate User Ownership) -->
+  <line x1="485" y1="770" x2="680" y2="765" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="580" y="784" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">validate user ownership</text>
+
+  <!-- ============================================================ -->
+  <!--  ARROWS – Internal Process ↔ Process                        -->
+  <!-- ============================================================ -->
+
+  <!-- 5.2 → 5.4 (Validate Move → persist) -->
+  <line x1="420" y1="435" x2="420" y2="695" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="460" y="565" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">validate move</text>
+
+  <!-- 5.3 → 5.4 (add to unranked pool → persist) -->
+  <line x1="430" y1="630" x2="430" y2="695" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="480" y="665" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">add to pool</text>
+
+  <!-- 5.4 → User (Success Acknowledgement) -->
+  <line x1="355" y1="770" x2="65" y2="255" stroke="black" stroke-width="1.5" marker-end="url(#arr-left)"/>
+  <text x="155" y="620" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">success ack</text>
+
+  <!-- 5.1 → 5.5 (board data for display) -->
+  <line x1="485" y1="165" x2="885" y2="400" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="700" y="280" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">board data for display</text>
+
+  <!-- D5 → 5.5 (fetch latest tiers for view) -->
+  <line x1="920" y1="170" x2="960" y2="365" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="985" y="280" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">fetch tiers</text>
+
+  <!-- Admin → 5.4 (force reset / delete tier list) -->
+  <line x1="130" y1="575" x2="355" y2="745" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="205" y="695" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">force reset / delete</text>
+
+</svg>
+</body>
+</html>

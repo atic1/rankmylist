@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Level 1 DFD – Rank My List</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 30px 10px;
+  }
+</style>
+</head>
+<body>
+<svg width="1300" height="1050" viewBox="0 0 1300 1050" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+    <marker id="arr-left" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="black"/>
+    </marker>
+  </defs>
+
+  <!-- ============================================================ -->
+  <!--  EXTERNAL ENTITIES (LEFT)                                   -->
+  <!-- ============================================================ -->
+
+  <!-- Registered User box -->
+  <rect x="20" y="100" width="150" height="55" fill="white" stroke="black" stroke-width="2"/>
+  <text x="95" y="132" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">Registered User</text>
+
+  <!-- Admin box -->
+  <rect x="20" y="340" width="110" height="55" fill="white" stroke="black" stroke-width="2"/>
+  <text x="75" y="372" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">Admin</text>
+
+  <!-- ============================================================ -->
+  <!--  EXTERNAL ENTITIES (RIGHT)                                  -->
+  <!-- ============================================================ -->
+
+  <!-- General User box -->
+  <rect x="1120" y="100" width="150" height="55" fill="white" stroke="black" stroke-width="2"/>
+  <text x="1195" y="132" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">General User</text>
+
+  <!-- ============================================================ -->
+  <!--  PROCESS CIRCLES (CENTER)                                   -->
+  <!-- ============================================================ -->
+
+  <!-- 1.1 User Authentication -->
+  <circle cx="440" cy="155" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="440" y="148" text-anchor="middle" font-size="12" font-family="Arial" fill="black">1.1</text>
+  <text x="440" y="163" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">User</text>
+  <text x="440" y="178" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Authentication</text>
+
+  <!-- 1.2 Manage My List -->
+  <circle cx="440" cy="340" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="440" y="333" text-anchor="middle" font-size="12" font-family="Arial" fill="black">1.2</text>
+  <text x="440" y="348" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Manage</text>
+  <text x="440" y="363" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">My List</text>
+
+  <!-- 1.3 Manage Tier Lists -->
+  <circle cx="440" cy="530" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="440" y="523" text-anchor="middle" font-size="12" font-family="Arial" fill="black">1.3</text>
+  <text x="440" y="538" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Manage</text>
+  <text x="440" y="553" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Tier Lists</text>
+
+  <!-- 1.4 Manage Reviews -->
+  <circle cx="440" cy="720" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="440" y="713" text-anchor="middle" font-size="12" font-family="Arial" fill="black">1.4</text>
+  <text x="440" y="728" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Manage</text>
+  <text x="440" y="743" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Reviews</text>
+
+  <!-- 1.5 Search & Discover -->
+  <circle cx="440" cy="905" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="440" y="898" text-anchor="middle" font-size="12" font-family="Arial" fill="black">1.5</text>
+  <text x="440" y="913" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Search &amp;</text>
+  <text x="440" y="928" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Discover</text>
+
+  <!-- 1.6 View Details / For You (RIGHT PROCESS) -->
+  <circle cx="970" cy="430" r="65" fill="white" stroke="black" stroke-width="2"/>
+  <text x="970" y="420" text-anchor="middle" font-size="12" font-family="Arial" fill="black">1.6</text>
+  <text x="970" y="435" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">View Movie</text>
+  <text x="970" y="450" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial" fill="black">Details</text>
+
+  <!-- ============================================================ -->
+  <!--  DATA STORES (right-center, open rectangles = 2 lines)       -->
+  <!-- ============================================================ -->
+
+  <!-- DS: Users -->
+  <line x1="750" y1="155" x2="950" y2="155" stroke="black" stroke-width="2"/>
+  <line x1="750" y1="185" x2="950" y2="185" stroke="black" stroke-width="2"/>
+  <text x="850" y="175" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">Users</text>
+
+  <!-- DS: My List -->
+  <line x1="750" y1="310" x2="950" y2="310" stroke="black" stroke-width="2"/>
+  <line x1="750" y1="340" x2="950" y2="340" stroke="black" stroke-width="2"/>
+  <text x="850" y="330" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">My List</text>
+
+  <!-- DS: Tier Lists -->
+  <line x1="750" y1="500" x2="950" y2="500" stroke="black" stroke-width="2"/>
+  <line x1="750" y1="530" x2="950" y2="530" stroke="black" stroke-width="2"/>
+  <text x="850" y="520" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">Tier Lists</text>
+
+  <!-- DS: Reviews -->
+  <line x1="750" y1="690" x2="950" y2="690" stroke="black" stroke-width="2"/>
+  <line x1="750" y1="720" x2="950" y2="720" stroke="black" stroke-width="2"/>
+  <text x="850" y="710" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">Reviews</text>
+
+  <!-- DS: TMDB API -->
+  <line x1="750" y1="875" x2="950" y2="875" stroke="black" stroke-width="2"/>
+  <line x1="750" y1="905" x2="950" y2="905" stroke="black" stroke-width="2"/>
+  <text x="850" y="895" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial" fill="black">TMDB API</text>
+
+  <!-- ============================================================ -->
+  <!--  ARROWS – Registered User ↔ Processes                       -->
+  <!-- ============================================================ -->
+
+  <!-- Registered User → 1.1 (login / register) -->
+  <line x1="170" y1="127" x2="375" y2="145" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="268" y="122" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">login / register</text>
+
+  <!-- 1.1 → Registered User (auth token / confirmation) -->
+  <line x1="375" y1="165" x2="170" y2="147" stroke="black" stroke-width="1.5" marker-end="url(#arr-left)"/>
+  <text x="268" y="172" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">auth token / confirmation</text>
+
+  <!-- Registered User → 1.2 (add/update list) -->
+  <line x1="95" y1="155" x2="95" y2="340" stroke="black" stroke-width="1.5"/>
+  <line x1="95" y1="340" x2="375" y2="340" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="200" y="332" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">add / update list</text>
+
+  <!-- Registered User → 1.3 (create tier list) -->
+  <line x1="85" y1="155" x2="85" y2="530" stroke="black" stroke-width="1.5"/>
+  <line x1="85" y1="530" x2="375" y2="530" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="200" y="522" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">create / update tier list</text>
+
+  <!-- Registered User → 1.4 (write review) -->
+  <line x1="75" y1="155" x2="75" y2="720" stroke="black" stroke-width="1.5"/>
+  <line x1="75" y1="720" x2="375" y2="720" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="200" y="712" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">write review</text>
+
+  <!-- Registered User → 1.5 (search query) -->
+  <line x1="65" y1="155" x2="65" y2="905" stroke="black" stroke-width="1.5"/>
+  <line x1="65" y1="905" x2="375" y2="905" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="205" y="897" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">search query</text>
+
+  <!-- ============================================================ -->
+  <!--  ARROWS – Admin → Processes                                  -->
+  <!-- ============================================================ -->
+
+  <!-- Admin → 1.1 (manage users) -->
+  <line x1="130" y1="360" x2="375" y2="185" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="240" y="265" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">manage users</text>
+
+  <!-- Admin → 1.4 (moderate reviews) -->
+  <line x1="130" y1="375" x2="375" y2="700" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="230" y="570" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">moderate reviews</text>
+
+  <!-- ============================================================ -->
+  <!--  ARROWS – Processes ↔ Data Stores                           -->
+  <!-- ============================================================ -->
+
+  <!-- 1.1 → Users DS (store user) -->
+  <line x1="505" y1="130" x2="750" y2="158" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="625" y="132" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">store / update user</text>
+
+  <!-- Users DS → 1.1 (fetch user) -->
+  <line x1="750" y1="180" x2="505" y2="165" stroke="black" stroke-width="1.5" marker-end="url(#arr-left)"/>
+  <text x="625" y="180" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">fetch user data</text>
+
+  <!-- 1.2 → My List DS (save list) -->
+  <line x1="505" y1="315" x2="750" y2="315" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="625" y="308" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">save list entry</text>
+
+  <!-- My List DS → 1.2 (fetch list) -->
+  <line x1="750" y1="337" x2="505" y2="337" stroke="black" stroke-width="1.5" marker-end="url(#arr-left)"/>
+  <text x="625" y="350" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">fetch list data</text>
+
+  <!-- 1.3 → Tier Lists DS (save tiers) -->
+  <line x1="505" y1="505" x2="750" y2="505" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="625" y="498" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">save tier list</text>
+
+  <!-- Tier Lists DS → 1.3 (fetch tiers) -->
+  <line x1="750" y1="527" x2="505" y2="527" stroke="black" stroke-width="1.5" marker-end="url(#arr-left)"/>
+  <text x="625" y="542" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">fetch tier list</text>
+
+  <!-- 1.4 → Reviews DS (save review) -->
+  <line x1="505" y1="695" x2="750" y2="695" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="625" y="688" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">save review</text>
+
+  <!-- Reviews DS → 1.4 (fetch reviews) -->
+  <line x1="750" y1="717" x2="505" y2="717" stroke="black" stroke-width="1.5" marker-end="url(#arr-left)"/>
+  <text x="625" y="732" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">fetch reviews</text>
+
+  <!-- 1.5 → TMDB DS (search request) -->
+  <line x1="505" y1="880" x2="750" y2="880" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="625" y="873" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">search / discover request</text>
+
+  <!-- TMDB DS → 1.5 (return results) -->
+  <line x1="750" y1="902" x2="505" y2="902" stroke="black" stroke-width="1.5" marker-end="url(#arr-left)"/>
+  <text x="625" y="917" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">movie results</text>
+
+  <!-- ============================================================ -->
+  <!--  ARROWS – Processes → 1.6 View Movie Details                -->
+  <!-- ============================================================ -->
+
+  <!-- 1.2 → 1.6 (movie list data) -->
+  <line x1="505" y1="330" x2="905" y2="415" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="710" y="355" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">movie list data</text>
+
+  <!-- 1.4 → 1.6 (reviews) -->
+  <line x1="505" y1="720" x2="905" y2="455" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="720" y="625" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">reviews data</text>
+
+  <!-- 1.5 → 1.6 (search results) -->
+  <line x1="505" y1="895" x2="910" y2="485" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="720" y="730" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">movie details</text>
+
+  <!-- ============================================================ -->
+  <!--  ARROWS – 1.6 ↔ General User                               -->
+  <!-- ============================================================ -->
+
+  <!-- General User → 1.6 (browse / access) -->
+  <line x1="1195" y1="155" x2="1030" y2="385" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="1135" y="285" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">browse / access</text>
+
+  <!-- 1.6 → General User (movie details output) -->
+  <line x1="1030" y1="405" x2="1120" y2="168" stroke="black" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="1115" y="320" text-anchor="middle" font-size="10.5" font-family="Arial" fill="black">movie info / rankings</text>
+
+</svg>
+</body>
+</html>
